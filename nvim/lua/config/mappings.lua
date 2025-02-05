@@ -12,6 +12,7 @@ vim.keymap.set('n', '<Leader>fn', ':w<CR> :!c_formatter_42 %<CR><CR> :nohlsearch
 
 -- Keymaps neotree
 vim.keymap.set('n', '<Leader>t', ':Neotree<CR>')
+vim.keymap.set('n', '<Leader>e', ':Neotree reveal<CR>')
 
 -- Keymaps telescope
 vim.keymap.set('n', '<Leader>fa', ':Telescope find_files<CR>')
@@ -19,19 +20,22 @@ vim.keymap.set('n', '<Leader>fo', ':Telescope oldfiles<CR>')
 vim.keymap.set('n', '<Leader>fg', ':Telescope live_grep<CR>')
 vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<CR>')
 
--- Keymaps norminette
+-- Keymaps bufferline
+vim.keymap.set('n', '<Leader>bn', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>bp', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>bd', ':bdelete<CR>', { noremap = true, silent = true })
+
 function NorminetteQuickfixTelescope()
-	    vim.cmd("!python3 ~/.config/nvim/parse.py > /tmp/quickfix_list.lua")
-    vim.cmd("cfile /tmp/quickfix_list.lua")
-    require('telescope.builtin').quickfix()
+	vim.cmd("!python3 ~/.config/nvim/parse.py > /tmp/quickfix_list.lua")
+	vim.cmd("cfile /tmp/quickfix_list.lua")
+	require('telescope.builtin').quickfix()
 end
 
-
 function NorminetteQuickfixDirect()
-    vim.cmd("silent! !python3 ~/.config/nvim/parse.py > /tmp/quickfix_list.lua")
-    vim.cmd("cfile /tmp/quickfix_list.lua")
-    vim.cmd("vert rightbelow copen")
-    vim.cmd("vertical resize 80")
+	vim.cmd("silent! !python3 ~/.config/nvim/parse.py > /tmp/quickfix_list.lua")
+	vim.cmd("cfile /tmp/quickfix_list.lua")
+	vim.cmd("vert rightbelow copen")
+	vim.cmd("vertical resize 80")
 end
 
 vim.keymap.set('n', '<Leader>q', ':lua NorminetteQuickfixTelescope()<CR>', { noremap = true, silent = true })
