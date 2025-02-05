@@ -21,9 +21,9 @@ vim.keymap.set('n', '<Leader>fg', ':Telescope live_grep<CR>')
 vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<CR>')
 
 -- Keymaps bufferline
-vim.keymap.set('n', '<Leader>bn', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>bp', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>bd', ':bdelete<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<TAB>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-TAB>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Leader>x', ':bdelete<CR>', { noremap = true, silent = true })
 
 function NorminetteQuickfixTelescope()
 	vim.cmd("!python3 ~/.config/nvim/parse.py > /tmp/quickfix_list.lua")
