@@ -2,13 +2,17 @@
 vim.keymap.set('n', ';', ':')
 vim.keymap.set('i', 'jk', '<ESC>')
 vim.keymap.set({'n', 'i'}, '<C-c>', ':%yank<CR>')
+vim.keymap.set({'n', 'i'}, '<C-C>', ':%yank<CR>')
 vim.keymap.set('v', '<C-c>', 'y')
 vim.keymap.set({'n', 'i', 'v'}, '<C-s>', '<ESC>:w<CR>')
 vim.keymap.set({'n', 'i', 'v'}, '<C-x>', '<ESC>:wq<CR>')
 vim.keymap.set({'n', 'i', 'v'}, '<C-q>', '<ESC>:q<CR>')
 vim.keymap.set('n', '<ESC>', ':nohlsearch<CR>')
-vim.keymap.set('n', '<Leader>fm', ':%s/\\s\\+$//e | %s/\\n\\{3,}/\\r\\r/ge <CR> gg=G`')
+vim.keymap.set('n', '<Leader>fm', ':%s/\\s\\+$//e | %s/\\n\\{3,}/\\r\\r/ge <CR> gg=G\'\'')
 vim.keymap.set('n', '<Leader>fn', ':w<CR> :!c_formatter_42 %<CR><CR> :nohlsearch<CR>')
+
+-- Commentary
+vim.keymap.set({'n', 'v'}, '<leader>/', ':Commentary<CR>')
 
 -- Keymaps neotree
 vim.keymap.set('n', '<Leader>t', ':Neotree<CR>')
